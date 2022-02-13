@@ -6,10 +6,12 @@ export interface State {}
 export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Props, S = State> {
   props: P;
   state: S;
+  $target: T;
 
-  constructor(props?: P) {
+  constructor($target: T, props?: P) {
     this.state = {} as S;
     this.props = props! as P;
+    this.$target = $target;
 
     this.setup();
     this.setEvent();
@@ -35,7 +37,7 @@ export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Pro
   protected componentDidUpdate() {}
 
   protected render() {
-    //   this.$target.innerHTML = this.template();
+    this.$target.innerHTML = this.template();
     this.componentDidMount();
   }
 
@@ -51,7 +53,7 @@ export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Pro
     this.render();
   }
 
-  addEvent($target: T, eventType: string, selector: string, cbFn: (event: any) => void) {
+  protected addEvent($target: T, eventType: string, selector: string, cbFn: (event: any) => void) {
     const children = [...$target.querySelectorAll(selector)];
 
     const isTarget = (target: any) => children.includes(target) || target.closest(selector);
