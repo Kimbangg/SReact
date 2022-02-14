@@ -14,8 +14,9 @@ export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Pro
     this.$target = $target;
 
     this.setup();
-    this.setEvent();
     this.initialState();
+    this.selectDom();
+    this.setEvent();
   }
 
   protected initialState() {
