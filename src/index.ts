@@ -1,6 +1,6 @@
 import App from './App';
 import Store from './lib/redux/Store';
-import reduce from '@/lib/redux/reducer';
+// import reduce from '@/lib/redux/reducer';
 
 export interface State {}
 
@@ -10,5 +10,5 @@ export const store = new Store<State>();
 document.addEventListener('DOMContentLoaded', () => {
   const $app = document.querySelector('#app')! as HTMLElement;
   const app = new App($app);
-  store.setup(app.state, reduce);
+  // store.setup(app.state, reduce);
 });
