@@ -1,4 +1,4 @@
 import '@/styles/index.scss';
-import { BaseComponent } from './core/Component';
+import { BaseComponent } from './lib/core/Component';
 
 export default class App extends BaseComponent<HTMLElement> {}
