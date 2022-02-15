@@ -15,8 +15,6 @@ export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Pro
 
     this.setup();
     this.initialState();
-    this.selectDom();
-    this.setEvent();
   }
 
   protected initialState() {
@@ -39,6 +37,10 @@ export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Pro
 
   protected render() {
     this.$target.innerHTML = this.template();
+
+    this.selectDom();
+    this.setEvent();
+
     this.componentDidMount();
   }
 
