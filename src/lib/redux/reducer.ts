@@ -12,7 +12,7 @@ const calculatorReducer = (state: any, { type = '', payload = {} }) => {
   }
 };
 
-const combineReducers = (state: any, action: Action) => {
+const combineReducers = <S>(state: S, action: Action) => {
   return {
     countNumber: calculatorReducer(state, action),
   };

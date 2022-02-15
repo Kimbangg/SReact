@@ -1,5 +1,4 @@
 import { Action } from '@/types/Store';
-import { BaseComponent } from '@/lib/core/Component';
 
 export interface State {}
 
@@ -20,7 +19,6 @@ export default class Store<S = State> {
   }
 
   public subscribe(fn: Function) {
-    // subscribe Fn = Component.render.bind(this);
     this.subscribers.push(fn);
   }
 
@@ -32,9 +30,7 @@ export default class Store<S = State> {
     this.subscribers.forEach(fn => fn());
   }
 
-  // dispatch에게 필요한 action을 넘겨준다.
   public dispatch(action: Action) {
-    // dispatch는 action과 state를 reducer에게 넘겨준다.
     this.state = this.reduce(this.state, action);
     this.notifySubScribers();
   }
