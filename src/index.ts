@@ -2,7 +2,7 @@ import App from './App';
 import Store from './lib/redux/Store';
 // import reduce from '@/lib/redux/reducer';
 
-// State에서 사용되는 값들을 interface 내부에 입력
+// State에서 사용되는 값들을 interface 로 지정한 뒤 사용
 export interface State {}
 
 // Store 내부에서 사용 될 State가 결정되면 Generic으로 넘겨줄 것
