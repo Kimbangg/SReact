@@ -3,7 +3,11 @@ import { checkSame } from '@/utils/json';
 export interface Props {}
 export interface State {}
 
-export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Props, S = State> {
+export abstract class BaseComponent<
+  T extends HTMLElement = HTMLElement,
+  P = Props,
+  S = State
+> {
   props: P;
   state: S;
   $target: T;
@@ -35,11 +39,11 @@ export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Pro
   // useEffect Deps
   protected componentDidUpdate() {}
 
-  protected render() {
+  public render() {
     this.$target.innerHTML = this.template();
 
     this.selectDom();
-    this.setEvent();
+    requestAnimationFrame(() => this.setEvent());
 
     this.componentDidMount();
   }
@@ -56,10 +60,16 @@ export abstract class BaseComponent<T extends HTMLElement = HTMLElement, P = Pro
     this.render();
   }
 
-  protected addEvent($target: T, eventType: string, selector: string, cbFn: (event: any) => void) {
+  protected addEvent(
+    $target: T,
+    eventType: string,
+    selector: string,
+    cbFn: (event: any) => void
+  ) {
     const children = [...$target.querySelectorAll(selector)];
 
-    const isTarget = (target: any) => children.includes(target) || target.closest(selector);
+    const isTarget = (target: any) =>
+      children.includes(target) || target.closest(selector);
 
     $target.addEventListener(eventType, event => {
       event.preventDefault();
