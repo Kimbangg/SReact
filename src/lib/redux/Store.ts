@@ -13,7 +13,7 @@ export default class Store<S = State> {
     this.subscribers = [];
   }
 
-  public setup(state: any, reduce: Function) {
+  public setup(reduce: Function, state?: S) {
     this.reduce = reduce ?? function () {};
     this.state = this.reduce(state, {});
   }

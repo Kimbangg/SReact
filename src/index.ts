@@ -11,5 +11,5 @@ export const store = new Store<State>();
 document.addEventListener('DOMContentLoaded', () => {
   const $app = document.querySelector('#app')! as HTMLElement;
   const app = new App($app);
-  // store.setup(app.state, reduce);
+  // store.setup(reduce);
 });

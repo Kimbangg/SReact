@@ -13,9 +13,16 @@
 // };
 
 // const combineReducers = <S>(state: S, action: Action) => {
+//   리듀서가 설정이 되면, 아래와 같이 return 값에 담아서 Store에게 전달한다.
 //   return {
 //     countNumber: calculatorReducer(state, action),
 //   };
+
+//
+//   CAUTION: 최초에 Reducer가 없는 상태라면 state를 리턴해줘야한다.
+//   return {
+//     state
+//   }
 // };
 
 // export default combineReducers;
