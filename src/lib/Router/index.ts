@@ -1,53 +1,42 @@
-import { BaseComponent } from '../core/Component';
+const ROUTE_CHANGE = 'ROUTE_CHANGE';
+const POP_STATE = 'popstate';
 
-export type Route = {
-  path: string;
-  component: BaseComponent;
-};
+// Browser 라우터는 URL을 이동 시킨 뒤 App에게 뷰(=Component)를 바꾸라는 요청을 하는 객체이다.
+export default class BrowserRouter {
+  switchRouter: Function | null;
 
-export default class Router {
-  lastPath: string;
-  history: string[];
+  constructor(initialURL: string) {
+    this.switchRouter = null;
 
-  constructor(public $target: HTMLElement, public routes: Route[]) {
-    this.$target = $target;
-    this.routes = routes;
-    this.history = [];
-    this.lastPath = '';
-
-    this.setup();
-    this.navigate('/');
+    this.setEvent();
+    this.routeChange(initialURL);
   }
 
-  setup() {
-    window.addEventListener('click', event => {
-      event.preventDefault();
-      const target = event.target as Element;
+  setup(switchRouter: Function) {
+    this.switchRouter = switchRouter;
+  }
 
-      if (!target.matches('button[data-route]')) return;
-
-      const path = (target.parentNode as HTMLAnchorElement).pathname;
-
-      this.history.push(path);
-      this.navigate(path);
+  setEvent() {
+    // URL의 변화가 생겼을 때, App에게 알리는 역할을 수행
+    window.addEventListener(ROUTE_CHANGE, () => {
+      this.switchRouter && this.switchRouter();
     });
 
-    window.addEventListener('popstate', () => {
-      this.history.pop();
-
-      if (this.history) {
-        this.navigate(this.history[this.history.length - 1]);
-      }
+    // URL의 이동을 확인했을 때, App에게 알리는 역할을 수행
+    window.addEventListener(POP_STATE, () => {
+      this.switchRouter && this.switchRouter();
     });
   }
 
-  navigate(path: string) {
-    if (this.lastPath === path) return;
-    this.lastPath = path;
-    window.history.pushState(null, '', path);
+  routeChange(url: string, params?: string) {
+    history.pushState(null, '', url);
 
-    const matched = this.routes.find(route => route.path === path);
-
-    matched?.component.render();
+    window.dispatchEvent(
+      new CustomEvent(ROUTE_CHANGE, {
+        detail: {
+          params,
+        },
+      })
+    );
   }
 }
