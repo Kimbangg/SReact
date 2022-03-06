@@ -3,7 +3,7 @@ import { checkSame } from '@/utils/json';
 export interface Props {}
 export interface State {}
 
-export abstract class BaseComponent<
+export default abstract class BaseComponent<
   T extends HTMLElement = HTMLElement,
   P = Props,
   S = State
