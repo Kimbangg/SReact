@@ -65,7 +65,7 @@
                 ```jsx
                 componentDidMount() {
                     if (!this.state.isInit) {
-                	    // do Something
+                	  // do Something
                     }
                   }
                 ```
@@ -161,35 +161,34 @@
                 }
             
                 selectDom() {
-            		// qs(selector, scope)
-                    this.$breadcrumb = qs('.exmaple', this.$target);
+            	   // qs(selector, scope)
+                   this.$example = qs('.exmaple', this.$target);
                 }
             
                 async componentDidMount() {
                     if ( !this.state.isInit) {
-            		    // do Something
+            		  // do Something
                     }
                 }
             
                 componentDidUpdate() {
-            
-                    new ChildComponent(this.$breadcrumb, {
+                    new ChildComponent(this.$example, {
                         filePaths,
                         updateSomething: this.updateSomething.bind(this),
                     })
             
                 }
             		
-            		async updateSomething(id) {
-            			const { isError, data } = await request(`/${id}`);
+                async updateSomething(id) {
+            	    const { isError, data } = await request(`/${id}`);
             
-            			this.setState({
-            				...this.state,
-            				data,
-            			})
-            		}
+            		this.setState({
+            		    ...this.state,
+            			data,
+            		})
+            	}
             
-            }
+           }
             ```
             
 
