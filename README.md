@@ -180,15 +180,15 @@
                 }
             		
                 async updateSomething(id) {
-            	    const { isError, data } = await request(`/${id}`);
+            	  const { isError, data } = await request(`/${id}`);
             
-            		this.setState({
-            		    ...this.state,
-            			data,
-            		})
-            	}
+                  this.setState({
+                    ...this.state,
+            		data,
+            	  })
+                }
             
-           }
+            }
             ```
             
 
