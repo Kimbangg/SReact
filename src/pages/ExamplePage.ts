@@ -38,8 +38,7 @@ export default class ExamplePage extends BaseComponent<
   }
 
   componentDidUpdate() {
-    // new ChildComponent(this.$breadcrumb, {
-    //   filePaths,
+    // new ChildComponent(this.$example, {
     //   updateSomething: this.updateSomething.bind(this),
     // });
   }

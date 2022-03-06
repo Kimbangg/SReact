@@ -1,7 +1,5 @@
 import '@/styles/index.scss';
 import BrowserRouter from './lib/Router';
-// import { store } from '.';
-// import { increaseNumber } from './lib/redux/action';
 
 interface State {}
 
@@ -20,26 +18,21 @@ export default class App<State> {
     const { pathname } = window.location;
     const { routeChange } = this.browserRouter;
 
-    const pathURL =
-      pathname.indexOf('/web/products') === 0 ? '/web/products' : pathname;
-
-    // switch (pathURL) {
-    //   case PRODUCT_LIST_PAGE:
-    //     new ProductListPage(this.$target, {
+    // switch (pathname) {
+    //   case A_PAGE:
+    //     new A_PAGE(this.$target, {
     //       routeChange,
     //     });
     //     break;
 
-    //   case PRODUCT_LIST_PAGE:
-    //     const [, , , productId] = pathname.split('/');
-    //     new ProductDetailPage(this.$target, {
-    //       productId,
+    //   case B_PAGE:
+    //     new B_PAGE(this.$target, {
     //       routeChange,
     //     });
     //     break;
 
-    //   case CART_PAGE:
-    //     new Cart(this.$target, {
+    //   case C_PAGE:
+    //     new C_PAGE(this.$target, {
     //       routeChange,
     //     });
     //     break;

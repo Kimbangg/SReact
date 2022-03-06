@@ -5,4 +5,10 @@ export default class ExampleComponent extends BaseComponent {
       isInit: false,
     };
   }
+
+  template() {
+    return `
+      <h1>Example Page</h1>
+    `;
+  }
 }
