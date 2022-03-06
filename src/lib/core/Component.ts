@@ -33,10 +33,13 @@ export abstract class BaseComponent<
     return '';
   }
 
-  // useEffect no Deps
+  // useEffect no Deps => 최초 렌더링 시에만 작동합니다.
+  // 그렇기 때문에 Page는 isInit이라는 값을 가지고 최초 렌더링할 때만 작동하는 로직의 추가가 필요합니다.
+  // ExampleComponent에 구현이 되어있습니다.
   protected componentDidMount() {}
 
   // useEffect Deps
+  // state가 변경될 때(=setState) 마다 호출이 되는 메서드입니다.
   protected componentDidUpdate() {}
 
   public render() {
@@ -58,6 +61,7 @@ export abstract class BaseComponent<
     this.state = { ...this.state, ...newState };
 
     this.render();
+    this.componentDidUpdate();
   }
 
   protected addEvent(
