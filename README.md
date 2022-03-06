@@ -30,7 +30,7 @@
                 this.$target.innerHTML = this.template();
             
                 this.selectDom();
-                requestAnimationFrame(() => this.setEvent());
+                this.setEvent();
             
                 this.componentDidMount();
               }
@@ -65,7 +65,7 @@
                 ```jsx
                 componentDidMount() {
                     if (!this.state.isInit) {
-                			// do Something
+                	    // do Something
                     }
                   }
                 ```
@@ -150,7 +150,7 @@
                 setup() {
                     this.state = {
                         isInit: false,
-            						data: null,
+            			data: null,
                     }
                 }
             
@@ -161,13 +161,13 @@
                 }
             
                 selectDom() {
-            				// qs(selector, scope)
+            		// qs(selector, scope)
                     this.$breadcrumb = qs('.exmaple', this.$target);
                 }
             
                 async componentDidMount() {
                     if ( !this.state.isInit) {
-            					// do Something
+            		    // do Something
                     }
                 }
             
