@@ -56,9 +56,9 @@
             - 상태를 업데이트(=setState)  시점에서 `isInit = true` 로 변경하여 이후의 렌더링에서는 componentDidMount() 메서드 내부의 로직이 실행되지 않도록 합니다.
             
             ```jsx
-            componentDidMount() {
+            protected componentDidMount() {
                if (!this.state.isInit) {
-            	   // do Something
+                 // do Something
                }
              }
             ```
@@ -70,7 +70,7 @@
         - BaseComponent에서는 빈 로직으로 선언이 되어있고, 사용 시에 오버라이딩을 해야합니다.
         
         ```jsx
-        componentDidUpdate() {
+        protected componentDidUpdate() {
           new ChildComponent(this.$target, {
         	  someState,
         	  otherState,
@@ -100,11 +100,11 @@
     
     ```jsx
     src
-    	pages
-    		- page_A
-    	components
-    		- component_A
-    	App.js
+      pages
+        - page_A
+      components
+        - component_A
+      App.js
     ```
   
 <br>
