@@ -137,8 +137,8 @@
         const combineReducers = <S>(state: S, action: Action) => {
            return {
              A_RESULT: A_REDUCER(state, action),
-        		 B_RESULT: B_REDUCER(state, action),
-        		 C_RESULT: C_REDUCER(state, action),
+             B_RESULT: B_REDUCER(state, action),
+             C_RESULT: C_REDUCER(state, action),
            };
         };
         ```
