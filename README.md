@@ -146,14 +146,14 @@
 <br>
 
 ## 라우터
-    - 구현 목적
-        - 바닐라 자바스크립트에서도 새로고침없이 SPA와 비슷한 방식으로 페이지 이동이 가능하도록 구현하였습니다.
-    - 역할
-        - 라우터는 리액트의 Browser Router와 같이 URL 변경 만을 수행합니다.
-        - URL의 변화가 있을 경우, App에게 전달받은 `SwitchRender()` 메서드를 호출하여 렌더링 업데이트가 필요하다는 것을 알립니다.
+   - 구현 목적
+       - 바닐라 자바스크립트에서도 새로고침없이 SPA와 비슷한 방식으로 페이지 이동이 가능하도록 구현하였습니다.
+   - 역할
+       - 라우터는 리액트의 Browser Router와 같이 URL 변경 만을 수행합니다.
+       - URL의 변화가 있을 경우, App에게 전달받은 `SwitchRender()` 메서드를 호출하여 렌더링 업데이트가 필요하다는 것을 알립니다.
         
-        - 동작원리
-            - App 컴포넌트는 하위 컴포넌트에게Custom Event인 `ROUTE_CAHNGE` 를 발생시킬 수 있는 `this.browserRouter.routeChange()` 를 하위 컴포넌트에게 전달합니다.
-            - URL 변경이 필요할 경우 하위 컴포넌트는 `routeChange(url)` 를 호출합니다.
-            - 라우터의 `ROUTE_CHANGE`  리스너는 이벤트가 발생하면, App에게 전달받은 this.switchRouter를 호출함으로써 변경 사항이 있음을 App에게 알립니다.
-            - App은 현재 pathname을 바탕으로 이에 맞는 컴포넌트를 렌더링합니다.
+   - 동작원리
+       - App 컴포넌트는 하위 컴포넌트에게Custom Event인 `ROUTE_CAHNGE` 를 발생시킬 수 있는 `this.browserRouter.routeChange()` 를 하위 컴포넌트에게 전달합니다.
+       - URL 변경이 필요할 경우 하위 컴포넌트는 `routeChange(url)` 를 호출합니다.
+       - 라우터의 `ROUTE_CHANGE`  리스너는 이벤트가 발생하면, App에게 전달받은 this.switchRouter를 호출함으로써 변경 사항이 있음을 App에게 알립니다.
+       - App은 현재 pathname을 바탕으로 이에 맞는 컴포넌트를 렌더링합니다.
