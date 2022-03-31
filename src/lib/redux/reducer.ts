@@ -25,7 +25,6 @@
 //   return {
 //     countNumber: calculatorReducer(state, action),
 //   };
-
 //
 //   CAUTION: 최초에 Reducer가 없는 상태라면 state를 리턴해줘야한다.
 //   return {
