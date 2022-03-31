@@ -5,7 +5,7 @@ interface Props {}
 
 interface State {
   isInit: boolean;
-  data: [] | null;
+  routeChange: Function;
 }
 
 export default class ExamplePage extends BaseComponent<
@@ -14,40 +14,58 @@ export default class ExamplePage extends BaseComponent<
   State
 > {
   setup() {
+    const { routeChange } = this.props;
+
     this.state = {
       isInit: false,
-      data: null,
+      routeChange,
     };
   }
 
   template() {
     return `
-            <nav class="exmample"></nav>
+            <div class="exmample"></div>
         `;
   }
 
   selectDom() {
-    // qs(selector, scope)
     // this.$example = qs('.exmaple', this.$target);
   }
 
+  render() {
+    // 하위 컴포넌트를 render 메서드에서 선언합니다.
+    // 하위 컴포넌트에서 사용할 상태 및 상태 업데이트에 필요한 메서드를 Props로 전달할 수 있습니다.
+    // this.SubComponent = new SubComponent(this.$example,
+    //   {
+    //     prop1,
+    //     prop2,
+    //     exampleMethod: this.exampleMethod.bind(this),
+    //     routeChange,
+    //   }
+    // );
+    // this.componentDidMount();
+  }
+
   async componentDidMount() {
+    // 마운트 시에
+
     if (!this.state.isInit) {
       // do Something
     }
+
+    // this.state.isInit = true;
   }
 
   componentDidUpdate() {
-    // new ChildComponent(this.$example, {
-    //   updateSomething: this.updateSomething.bind(this),
-    // });
+    // 컴포넌트 업데이트 시, 호출이 되는 메서드입니다.
+    // this.SubComponent.setState({
+    //   ...this.state,
+    //   prop1,
+    //   prop2,
+    // })
   }
 
-  async updateSomething(id: string) {
-    // const { isError, data } = await request(`/${id}`);
-    // this.setState({
-    //   ...this.state,
-    //   data,
-    // });
+  exampleMethod() {
+    // ..do Something
   }
 }
