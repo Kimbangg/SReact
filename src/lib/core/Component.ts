@@ -63,22 +63,4 @@ export default abstract class BaseComponent<
     this.render();
     this.componentDidUpdate();
   }
-
-  protected addEvent(
-    $target: T,
-    eventType: string,
-    selector: string,
-    cbFn: (event: any) => void
-  ) {
-    const children = [...$target.querySelectorAll(selector)];
-
-    const isTarget = (target: any) =>
-      children.includes(target) || target.closest(selector);
-
-    $target.addEventListener(eventType, event => {
-      event.preventDefault();
-      if (!isTarget(event.target)) return false;
-      cbFn(event);
-    });
-  }
 }
