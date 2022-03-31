@@ -1,5 +1,5 @@
 import '@/styles/index.scss';
-import BrowserRouter from './lib/Router';
+import BrowserRouter from './lib/BrowserRouter';
 
 interface State {}
 
@@ -10,10 +10,10 @@ export default class App<State> {
   constructor($target: HTMLElement) {
     this.$target = $target;
 
-    this.browserRouter = new BrowserRouter('');
+    this.browserRouter = new BrowserRouter(this.switchRender.bind(this));
     this.switchRender();
-    this.browserRouter.setup(this.switchRender.bind(this));
   }
+
   switchRender() {
     const { pathname } = window.location;
     const { routeChange } = this.browserRouter;
