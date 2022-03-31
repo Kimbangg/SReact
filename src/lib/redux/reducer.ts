@@ -4,11 +4,19 @@
 // const calculatorReducer = (state: any, { type = '', payload = {} }) => {
 //   switch (type) {
 //     case INCREASE_NUMBER:
-//       return state.countNumber + 1;
+//       return {
+//         ...state,
+//         countNumber: state.countNumber + 1,
+//       };
 //     case DECREASE_NUMBER:
-//       return state.countNumber - 1;
+//       return {
+//         ...state,
+//         countNumber: state.countNumber - 1,
+//       };
 //     default:
-//       return state;
+//       return {
+//         ...state,
+//       };
 //   }
 // };
 
