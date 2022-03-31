@@ -14,18 +14,17 @@ export default class ExamplePage extends BaseComponent<
   State
 > {
   setup() {
-    const { routeChange } = this.props;
-
-    this.state = {
-      isInit: false,
-      routeChange,
-    };
+    // const { routeChange } = this.props;
+    // this.state = {
+    //   isInit: false,
+    //   routeChange,
+    // };
   }
 
   template() {
     return `
-            <div class="exmample"></div>
-        `;
+      <div class="exmample"></div>
+    `;
   }
 
   selectDom() {
@@ -47,7 +46,7 @@ export default class ExamplePage extends BaseComponent<
   }
 
   async componentDidMount() {
-    // 마운트 시에
+    // 컴포넌트가 마운트 될 때, 1번만 작동이 됩니다.
 
     if (!this.state.isInit) {
       // do Something
