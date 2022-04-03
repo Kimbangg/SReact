@@ -60,7 +60,6 @@ export default abstract class BaseComponent<
 
     this.state = { ...this.state, ...newState };
 
-    this.render();
     this.componentDidUpdate();
   }
 }
